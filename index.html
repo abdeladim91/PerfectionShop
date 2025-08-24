@@ -25,33 +25,34 @@
     🎉 Summer Sale — Up to <span class="font-semibold">40% OFF</span> + Free shipping over $50
   </div>
 </section>
-  <header class="top-0 z-40 bg-white/10 backdrop-blur border-b border-stone-900/10">
-    <div class="max-w-6xl mx-auto h-32  px-4 h-16 flex items-center justify-between gap-3">
-        <div>
-            <a href="#" class="flex items-center gap-2">
-                <img src="img/logo.png" alt="Logo" class="w-20 h-20"/>
-            </a>
-        </div>
-      <!-- Category Links -->
-      
-      <div class="text-xl flex items-center gap-4 ">
-        <a href="#grid" data-cat="all" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Home</a>
-        <a href="#grid" data-cat="Shoes" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Shoes</a>
-        <a href="#grid" data-cat="Clothing" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Clothing</a>
-        <a href="#grid" data-cat="Electronics" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Electronics</a>
-        <a href="#grid" data-cat="Bags" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Bags</a>
-        <a href="#grid" data-cat="Accessories" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Accessories</a>
-      </div>
-    <div class="flex">
-      <!-- Search -->
-      <div class="flex-1 max-w-md">
+  <header class="sticky top-0 z-50 bg-white md:bg-white/10 backdrop-blur border-b border-stone-900/10">
+  <div class="relative max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2">
+      <img src="img/logo.png" alt="Logo" class="w-20 h-20"/>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav id="navLinks" class="hidden md:flex text-xl items-center gap-4">
+      <a href="#grid" data-cat="all" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Home</a>
+      <a href="#grid" data-cat="Shoes" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Shoes</a>
+      <a href="#grid" data-cat="Clothing" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Clothing</a>
+      <a href="#grid" data-cat="Electronics" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Electronics</a>
+      <a href="#grid" data-cat="Bags" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Bags</a>
+      <a href="#grid" data-cat="Accessories" class="cat-link font-bold text-stone-900 hover:text-orange-500 transition">Accessories</a>
+    </nav>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-3">
+      <!-- Desktop search -->
+      <div class="hidden md:block w-56">
         <label class="sr-only" for="q">Search</label>
         <input id="q" type="search" placeholder="Search products…"
-               class="w-full rounded-lg bg-orange-50/10 border border-stone-900/30 px-3 py-2 outline-none focus:ring-2 focus:ring-orange-400 placeholder-stone-900/60">
+               class="w-full rounded-lg bg-orange-50/10 border border-stone-900/30 px-3 py-2 outline-none focus:ring-2 focus:ring-orange-400/20 placeholder-stone-900/60">
       </div>
 
-      <!-- Cart button -->
-      <button id="openCart" class="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 transition">
+      <!-- Cart -->
+      <button id="openCart" class="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="black">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 9m12-9l2 9M9 22a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/>
@@ -59,10 +60,42 @@
         <span class="text-stone-900">Cart</span>
         <span id="cartCount" class="absolute -top-2 -right-2 text-xs font-semibold bg-orange-500 text-slate-900 rounded-full px-1.5 py-0.5">0</span>
       </button>
+
+      <!-- Mobile hamburger -->
+      <button id="navBtn" class="md:hidden p-2 rounded-lg border border-stone-900/20 bg-orange-400"
+              aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+        <svg id="iconHamb" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="iconClose" class="hidden w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6l12 12M18 6l-12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- MOBILE MENU (now inside the relative wrapper; remove the stray '+') -->
+    <div id="mobileMenu"
+         class="md:hidden absolute left-0 right-0 top-full z-[60] bg-white text-stone-900
+                border-b border-stone-900/10 shadow-lg transform origin-top
+                scale-y-0 opacity-0 pointer-events-none transition-transform duration-200 ease-out">
+      <div class="px-4 py-4 grid gap-3">
+        <label class="sr-only" for="qMobile">Search</label>
+        <input id="qMobile" type="search" placeholder="Search products…"
+               class="w-full rounded-lg border border-stone-300 px-3 py-2 outline-none focus:ring-2 focus:ring-orange-400 placeholder-stone-500">
+
+        <a href="#grid" data-cat="all" class="cat-link py-2 font-medium hover:text-orange-600">Home</a>
+        <a href="#grid" data-cat="Shoes" class="cat-link py-2 font-medium hover:text-orange-600">Shoes</a>
+        <a href="#grid" data-cat="Clothing" class="cat-link py-2 font-medium hover:text-orange-600">Clothing</a>
+        <a href="#grid" data-cat="Electronics" class="cat-link py-2 font-medium hover:text-orange-600">Electronics</a>
+        <a href="#grid" data-cat="Bags" class="cat-link py-2 font-medium hover:text-orange-600">Bags</a>
+        <a href="#grid" data-cat="Accessories" class="cat-link py-2 font-medium hover:text-orange-600">Accessories</a>
       </div>
     </div>
-    
-  </header>
+
+    <!-- optional overlay to dim page -->
+    <div id="menuOverlay" class="md:hidden fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity"></div>
+  </div>
+</header>
 
   <section class="mb-8 text-center bg-image bg-[url(img/head-bg.png)] bg-no-repeat bg-cover relative overflow-hidden rounded-lg sm:h-[70vh] md:h-[60vh] lg:h-[90vh]">
     
