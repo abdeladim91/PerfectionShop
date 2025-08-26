@@ -16,7 +16,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  
+
+  <script>
+    tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          // Add Poppins to the sans-serif font family
+          sans: ['Poppins', 'sans-serif'], 
+        },
+      },
+    },
+  }
+  </script>
   <meta name="description" content="Simple ecommerce demo with search, filters, cart and localStorage."/>
 </head>
 <body class="min-h-screen bg-orange-50 text-white selection:bg-orange-300 selection:text-slate-900">
@@ -478,6 +490,7 @@
 <script src="main.js" defer></script>
 </body>
 </html>
+
 
 
 
