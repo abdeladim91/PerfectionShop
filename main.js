@@ -15,6 +15,17 @@
   ];
   // -------------------------------------------------------------
 
+  // Tailwind config (for custom fonts)
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          // Add Poppins to the sans-serif font family
+          sans: ['Poppins', 'sans-serif'], 
+        },
+      },
+    },
+  }
   // DOM refs
   const grid = document.getElementById('grid');
   const q = document.getElementById('q');
@@ -405,3 +416,4 @@ document.querySelectorAll('.cat-link').forEach(link => {
     document.getElementById('grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
